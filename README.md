@@ -1,8 +1,8 @@
-# git
-
-
+# Git Basics
+&nbsp;
+&nbsp;
 ## Config
-
+&nbsp;
 ### Allow ssh
 ```git
 git config --global http.sslVerify false
@@ -38,10 +38,10 @@ git config —global merge.tool p4merge
 git config —global mergetool.p4merge.path /Applications/p4merge.app/Contents/MacOS/p4merge
 git config —global mergetool.prompt false
 ```
-
-
+&nbsp;
+&nbsp;
 ## Commands
-
+&nbsp;
 ### Log
 ```git 
 git log
@@ -82,10 +82,10 @@ git difftool HEAD HEAD^
 git diff commit-id-1 commit-id-2
 git diff master origin/master
 ```
-
-
+&nbsp;
+&nbsp;
 ## Branches
-
+&nbsp;
 ### Basic
 ```git 
 git branch -a
@@ -131,39 +131,76 @@ git merge newbranch2 -m “merging branches...”
 git mergetool
 git commit
 ```
+&nbsp;
+&nbsp;
+## Rebase
+&nbsp;
+### Rebase basics
+```git 
+git checkout newbranch
+git log --oneline --decorate --all --graph
+git rebase master
+git checkout master
+git rebase abort
+```
+Fix conflicts and
+```git 
+git rebase --continue
+```
+### Rebase conflicts (remote and local) 
+```git 
+git fetch origin master
+git pull --rebase origin master
+```
 
-
+&nbsp;
+&nbsp;
 ## Reset
-
-### Basic
+&nbsp;
+### Reset basics
 ```git 
 git reset HEAD^1
 git reset "commit id"
 ```
 
-### reflog
+### Reflog
 ```git 
 check git reset log
 ```
-
-### 
+&nbsp;
+&nbsp;
+## Stash
+To be tracked after file edit
+&nbsp;
+### Stash basics
 ```git 
-
+git stash
+git stash apply
+git stash list
+git stash drop
+```
+Include untracked files
+```git 
+git stash -u 
+```
+Apply and drop
+```git 
+git stash pop
 ```
 
-### 
+### Multiple stashes
 ```git 
-
+git stash save "comment"
+git stash list
+git stash show stash@{#}
+git stash apply stash@{#}
+git stash drop stash@{#}
 ```
 
-### 
+### Stash into branch
 ```git 
-
+git stash branch newbranch
+git checkout master
+git merge newbranch
+git branch -d newbranch
 ```
-
-### 
-```git 
-
-```
-
-
