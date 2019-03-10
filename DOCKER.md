@@ -45,8 +45,8 @@ docker container ls -a
 Display container status
 ```
 docker container top "container name"
-```&nbsp;
-
+```
+&nbsp;
 Remove a container
 ```
 docker container rm "first 3 digits"
